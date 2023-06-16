@@ -81,3 +81,25 @@ intersect
 select department_id from departments
 minus
 select department_id from departments;
+
+
+select e.employee_id,d.department_name
+from employees e
+left join departments d on e.department_id=d.department_id
+order by d.department_name;
+
+select e.employee_id,d.department_name
+from employees e
+right join departments d on e.department_id=d.department_id
+order by d.department_name;
+
+select e.employee_id,d.department_name
+from employees e
+full outer join departments d on e.department_id=d.department_id
+order by d.department_name;
+
+select e.employee_id
+from employees e
+cross join departments;
+
+--non-equi
