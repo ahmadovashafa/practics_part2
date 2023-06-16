@@ -103,3 +103,15 @@ from employees e
 cross join departments;
 
 --non-equi
+
+--inner
+select e.first_name, d.department_name
+from employees e
+inner join departments d on e.department_id=d.department_id;
+--natural
+select* from countries natural join locations;
+--self
+select e1.first_name,e2.first_name
+from employees e1,employees e2
+where e1.employee_id!=e2.employee_id;
+
