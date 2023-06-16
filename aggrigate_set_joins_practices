@@ -1,0 +1,83 @@
+--aggrigate
+select*from sales_data;
+
+select count(customer_id) from sales_data;
+select max(customer_id) from sales_data;
+select min(customer_id) from sales_data;
+select avg(customer_id) from sales_data;
+select median(salary) from employees;
+
+
+select count(e.salary) as e_salary,d.department_name
+from employees e
+join departments d on e.department_id=d.department_id
+group by department_name;
+
+
+select sum(e.salary) as e_salary,d.department_name
+from employees e
+join departments d on e.department_id=d.department_id
+group by department_name;
+
+select max(e.salary) as e_salary,d.department_name
+from employees e
+join departments d on e.department_id=d.department_id
+group by department_name;
+
+select min(e.salary) as e_salary,d.department_name
+from employees e
+join departments d on e.department_id=d.department_id
+group by department_name;
+
+select avg(e.salary) as e_salary,d.department_name
+from employees e
+join departments d on e.department_id=d.department_id
+group by department_name;
+
+------
+select to_char(sysdate,'dd-mm-yyyy') from dual;
+select to_date('20200526','YYYY-MM-DD')from dual;
+
+select*from sales_data;
+select sale_id, quantity,
+case
+    when Quantity > 30 then 'The quantity is greater than 30'
+    when Quantity = 30 then 'The quantity is 30'
+    else 'The quantity is under 30'
+end as QuantityText
+from  sales_data;
+
+
+select*from employees;
+select decode (commission_pct,middle_name,department_id) from employees;
+
+select nullif ('Hello','Hello1') from dual;
+
+
+--set operators 
+
+select department_id from employees
+union
+select department_id from departments;
+
+select department_id from employees
+union all
+select department_id from departments;
+
+select department_id from employees
+intersect
+select department_id from departments;
+
+select department_id from employees
+minus
+select department_id from departments;
+
+select department_id from employees
+union all
+select department_id from departments
+union 
+select department_id from departments
+intersect 
+select department_id from departments
+minus
+select department_id from departments;
